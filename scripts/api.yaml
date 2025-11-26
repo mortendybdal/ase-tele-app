@@ -1,0 +1,594 @@
+openapi: 3.0.0
+info:
+  title: AKS data API til telefonsystem
+  version: 2.0.0
+  description: API Specifikation til AKS data API til telefonsystem, genereret af
+    Microsoft CoPilot
+paths:
+  /GetAllObjects:
+    get:
+      summary: Hent AllObjects baseret på Medlemsnr
+      parameters:
+      - name: Medlemsnr
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succesfuld respons med AllObjects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllObjects'
+        '400':
+          description: Ugyldig forespørgsel
+        '500':
+          description: Serverfejl
+components:
+  schemas:
+    Fuldmagt:
+      type: object
+      properties:
+        Fuldmagt1:
+          type: boolean
+        Fuldmagttekst:
+          type: string
+          nullable: true
+        OBSnote:
+          type: string
+          nullable: true
+    Sagsrevnote:
+      type: object
+      properties:
+        Sagsrevnote:
+          type: boolean
+        Sagsrevtekst:
+          type: string
+          nullable: true
+        SagsrevStartdato:
+          type: string
+          format: date
+          nullable: true
+    Gdag:
+      type: object
+      properties:
+        GDAGNote:
+          type: string
+          nullable: true
+        GDAGTekst:
+          type: string
+          nullable: true
+        GDAGStartdato:
+          type: string
+          format: date
+          nullable: true
+    AKSBreve1MDR:
+      type: object
+      properties:
+        AKSBreve1mdr:
+          type: string
+          nullable: true
+    AKSBreve5:
+      type: object
+      properties:
+        AKSBreve5:
+          type: string
+          nullable: true
+    LoensPolice:
+      type: object
+      properties:
+        LOeNSPolice:
+          type: boolean
+    PostModt:
+      type: object
+      properties:
+        AKSPostModtTitel:
+          type: string
+          nullable: true
+    Rykbrev:
+      type: object
+      properties:
+        RykbrevType:
+          type: string
+          nullable: true
+        RykbrevDato:
+          type: string
+          format: date
+          nullable: true
+    UbehPost:
+      type: object
+      properties:
+        UbehPostType:
+          type: string
+          nullable: true
+        UbehPostTitel:
+          type: string
+          nullable: true
+    Medlemsaarsag:
+      type: object
+      properties:
+        Medlemsaarsag:
+          type: string
+          nullable: true
+        Medlemsaarsag1:
+          type: boolean
+        MedlemsaarsagTILF:
+          type: string
+          nullable: true
+        MedlemskabGyldigFra:
+          type: string
+          format: date
+          nullable: true
+    Medlemssagsstatus:
+      type: object
+      properties:
+        Medlemssagsstatus:
+          type: string
+          nullable: true
+    Medlemskategori:
+      type: object
+      properties:
+        Medlemskategori:
+          type: string
+          nullable: true
+        Medlemskategori1:
+          type: boolean
+        Medlemskategori2:
+          type: boolean
+        Medlemskategori3:
+          type: boolean
+        Medlemskategori4:
+          type: boolean
+    AkasseAnc:
+      type: object
+      properties:
+        AkasseAnc:
+          type: string
+          format: date
+          nullable: true
+    Kontingent:
+      type: object
+      properties:
+        KonfritSlut:
+          type: string
+          format: date
+          nullable: true
+        KontingentSaldoAKS:
+          type: number
+          nullable: true
+        ForfaldsdatoAKS:
+          type: string
+          format: date
+          nullable: true
+    Gaeld:
+      type: object
+      properties:
+        GaeldssaldoAKS:
+          type: number
+          nullable: true
+    AKS:
+      type: object
+      properties:
+        DataMKSag:
+          type: string
+          nullable: true
+    Sagsstatus:
+      type: object
+      properties:
+        SagsstatusMD:
+          type: boolean
+        SagsstatusMD1:
+          type: boolean
+    Beskaeftigelse:
+      type: object
+      properties:
+        Beskaeftigelse:
+          type: boolean
+    Moedeudeblivelse:
+      type: object
+      properties:
+        MoedeUDEBLE:
+          type: string
+          nullable: true
+        DatoTidUDEBLE:
+          type: string
+          format: date-time
+          nullable: true
+    BookingFrist:
+      type: object
+      properties:
+        BookfristDato:
+          type: string
+          format: date
+          nullable: true
+        BookfristMoedetype:
+          type: string
+          nullable: true
+    Fravaer:
+      type: object
+      properties:
+        KontaktforloebStart:
+          type: string
+          format: date
+          nullable: true
+        KontaktforloebSlut:
+          type: string
+          format: date
+          nullable: true
+    Stop:
+      type: object
+      properties:
+        STOPtype:
+          type: string
+          nullable: true
+        STOPfradato:
+          type: string
+          format: date
+          nullable: true
+        STOPtildato:
+          type: string
+          format: date
+          nullable: true
+        STOPAntal:
+          type: number
+    JobCenter:
+      type: object
+      properties:
+        JCafogtilmeld4:
+          type: string
+          format: date
+          nullable: true
+        JCStatus4:
+          type: string
+          nullable: true
+        JCBetegnelse4:
+          type: string
+          format: date
+          nullable: true
+        JCTilm:
+          type: string
+          format: date
+          nullable: true
+        TilmJCJA:
+          type: boolean
+    JobLog:
+      type: object
+      properties:
+        MglJoblogUge:
+          type: string
+          nullable: true
+        JoblogUgerFrit:
+          type: string
+          nullable: true
+        JoblogCV:
+          type: number
+          nullable: true
+        JoblogAnsoegning:
+          type: number
+          nullable: true
+    FritagetRaadighed:
+      type: object
+      properties:
+        FritagetRaadighedStart:
+          type: string
+          format: date
+          nullable: true
+        FritagetRaadighedSlut:
+          type: string
+          format: date
+          nullable: true
+        FritagetRaadighedBemaerk:
+          type: string
+          nullable: true
+    Aktivering:
+      type: object
+      properties:
+        Aktiveringnavn:
+          type: string
+          nullable: true
+        AktiveringStart:
+          type: string
+          format: date
+          nullable: true
+        AktiveringSlut:
+          type: string
+          format: date
+          nullable: true
+    YL:
+      type: object
+      properties:
+        YLVirk:
+          type: string
+          nullable: true
+        YLStartdato:
+          type: string
+          format: date
+          nullable: true
+        YLTYPE:
+          type: string
+          nullable: true
+        YLTimer:
+          type: number
+          nullable: true
+        YLSagsstatus:
+          type: string
+          nullable: true
+        YLArbophoerSagstatus:
+          type: string
+          nullable: true
+    DPERK:
+      type: object
+      properties:
+        DPERKType:
+          type: string
+          nullable: true
+        DPERKFakstartdato:
+          type: string
+          format: date
+          nullable: true
+        DPERKSagsstatus:
+          type: string
+          nullable: true
+        DPERKSagsstatusDato:
+          type: string
+          format: date
+          nullable: true
+    CVUdd:
+      type: object
+      properties:
+        CVUddannelse:
+          type: string
+          nullable: true
+        CVUddNiveau:
+          type: string
+          nullable: true
+        CVUddStart:
+          type: string
+          format: date
+          nullable: true
+        CVUddSlut:
+          type: string
+          format: date
+          nullable: true
+    DPForbrug:
+      type: object
+      properties:
+        DPForbrug:
+          type: number
+          nullable: true
+        DPUdbMaaned:
+          type: string
+          nullable: true
+    Paamind:
+      type: object
+      properties:
+        PaaminType5:
+          type: string
+          nullable: true
+        PaaminBetegn5:
+          type: string
+          nullable: true
+    URRing:
+      type: object
+      properties:
+        UR-RING-LType:
+          type: string
+          nullable: true
+        UR-RING-LTekst:
+          type: string
+          nullable: true
+    Efterloen:
+      type: object
+      properties:
+        Efterloensbevis:
+          type: boolean
+          nullable: true
+        Efterloenretdato:
+          type: string
+          format: date
+          nullable: true
+    UDB:
+      type: object
+      properties:
+        UDBPeriode:
+          type: number
+          nullable: true
+        UDBType:
+          type: string
+          nullable: true
+        UDBBeregnDato:
+          type: string
+          format: date
+          nullable: true
+        UDBBeloeb:
+          type: number
+          nullable: true
+        UDBDispDato:
+          type: string
+          format: date
+          nullable: true
+        UDBStatus:
+          type: string
+          nullable: true
+    Loensikring:
+      type: object
+      properties:
+        LOeNSAendringsdato:
+          type: string
+          format: date
+          nullable: true
+        LOeNSPakkevalg:
+          type: string
+          nullable: true
+        LOeNSTegningsdato:
+          type: string
+          format: date
+          nullable: true
+        LOeNSSUM:
+          type: number
+          nullable: true
+        LOeNSDaekPeriode:
+          type: number
+          nullable: true
+    LoensErkl:
+      type: object
+      properties:
+        LOeNSUdbGodk:
+          type: string
+          format: date
+          nullable: true
+        LOeNSFak.Start:
+          type: string
+          format: date
+          nullable: true
+        LOeNSFak.Slut:
+          type: string
+          format: date
+          nullable: true
+        LOeNSRestTimer:
+          type: number
+          nullable: true
+        LOeNSBemaerk:
+          type: string
+          nullable: true
+    Kursus:
+      type: object
+      properties:
+        KursusStart:
+          type: string
+          format: date
+          nullable: true
+        KursusSlut:
+          type: string
+          format: date
+          nullable: true
+        KursusTimer:
+          type: number
+          nullable: true
+        KursusErhvevsgr:
+          type: string
+          nullable: true
+        KursusForbrugtetimer:
+          type: number
+          nullable: true
+    Efterregulering:
+      type: object
+      properties:
+        EfteregPeriode:
+          type: string
+          pattern: ^\d{4}-\d{2}$
+          example: 2025-11
+        EfterregStatus:
+          type: string
+          nullable: true
+        EfterregAntal:
+          type: number
+          nullable: true
+    AllObjects:
+      type: object
+      properties:
+        Fuldmagt:
+          $ref: '#/components/schemas/Fuldmagt'
+        Sagsrevnote:
+          $ref: '#/components/schemas/Sagsrevnote'
+        Gdag:
+          $ref: '#/components/schemas/Gdag'
+        AKSBreve1MDR:
+          type: array
+          items:
+            $ref: '#/components/schemas/AKSBreve1MDR'
+        AKSBreve5:
+          type: array
+          items:
+            $ref: '#/components/schemas/AKSBreve5'
+        LoensPolice:
+          $ref: '#/components/schemas/LoensPolice'
+        PostModt:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostModt'
+        Rykbrev:
+          $ref: '#/components/schemas/Rykbrev'
+        UbehPost:
+          type: array
+          items:
+            $ref: '#/components/schemas/UbehPost'
+        Medlemsaarsag:
+          $ref: '#/components/schemas/Medlemsaarsag'
+        Medlemssagsstatus:
+          $ref: '#/components/schemas/Medlemssagsstatus'
+        Medlemskategori:
+          $ref: '#/components/schemas/Medlemskategori'
+        AkasseAnc:
+          $ref: '#/components/schemas/AkasseAnc'
+        Kontingent:
+          $ref: '#/components/schemas/Kontingent'
+        Gaeld:
+          $ref: '#/components/schemas/Gaeld'
+        AKS:
+          $ref: '#/components/schemas/AKS'
+        Sagsstatus:
+          $ref: '#/components/schemas/Sagsstatus'
+        Beskaeftigelse:
+          $ref: '#/components/schemas/Beskaeftigelse'
+        Moedeudeblivelse:
+          $ref: '#/components/schemas/Moedeudeblivelse'
+        BookingFrist:
+          $ref: '#/components/schemas/BookingFrist'
+        Fravaer:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fravaer'
+        Stop:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stop'
+        JobCenter:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobCenter'
+        JobLog:
+          $ref: '#/components/schemas/JobLog'
+        FritagetRaadighed:
+          type: array
+          items:
+            $ref: '#/components/schemas/FritagetRaadighed'
+        Aktivering:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aktivering'
+        YL:
+          type: array
+          items:
+            $ref: '#/components/schemas/YL'
+        DPERK:
+          $ref: '#/components/schemas/DPERK'
+        CVUdd:
+          type: array
+          items:
+            $ref: '#/components/schemas/CVUdd'
+        DPForbrug:
+          type: array
+          items:
+            $ref: '#/components/schemas/DPForbrug'
+        Paamind:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paamind'
+        URRing:
+          $ref: '#/components/schemas/URRing'
+        Efterloen:
+          $ref: '#/components/schemas/Efterloen'
+        UDB:
+          $ref: '#/components/schemas/UDB'
+        Loensikring:
+          $ref: '#/components/schemas/Loensikring'
+        LoensErkl:
+          $ref: '#/components/schemas/LoensErkl'
+        Kursus:
+          $ref: '#/components/schemas/Kursus'
+        Efterregulering:
+          type: array
+          items:
+            $ref: '#/components/schemas/Efterregulering'
