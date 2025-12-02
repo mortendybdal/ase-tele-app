@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@openapitools/openapi-generator-cli": "2.21.4",
+    "auto-zustand-selectors-hook": "^3.0.1",
+    "json-edit-react": "^1.29.0",
     "next": "16.0.4",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-icons": "^5.5.0",
+    "styled-components": "^6.1.19",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@types/node": "^20",
