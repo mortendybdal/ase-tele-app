@@ -2,199 +2,200 @@ import { AllObjects } from "@/generated-api/api";
 
 const mockAseCustomer: AllObjects = {
   fuldmagt: {
-    fuldmagt1: true,
-    fuldmagttekst: "Fuldmagt til ægtefælle - Mette Jensen",
-    oBSnote: "Kan kontaktes på vegne af medlem",
+    erAktiv: true,
+    tekst: "Fuldmagt til ægtefælle - Mette Jensen",
   },
-  sagsrevnote: {
-    sagsrevnote: true,
-    sagsrevtekst: "Medlem har anmodet om gennemgang af dagpengesag",
-    sagsrevStartdato: "2025-11-15",
+  oBSNote: {
+    tekst: "Kan kontaktes på vegne af medlem",
   },
-  gdag: {
-    gDAGNote: "G-dag opfyldt",
-    gDAGTekst: "Selvforskyldt ledig - G-dag registreret",
-    gDAGStartdato: "2025-10-01",
+  sagsrev: {
+    harNote: true,
+    tekst: "Medlem har anmodet om gennemgang af dagpengesag",
+    startdato: "2025-11-15",
   },
-  aKSBreve1MDR: [
-    { aKSBreve1mdr: "Velkomstbrev sendt" },
-    { aKSBreve1mdr: "Dagpengeinformation sendt" },
+  gDag: {
+    harNote: "G-dag opfyldt",
+    tekst: "Selvforskyldt ledig - G-dag registreret",
+    startdato: "2025-10-01",
+  },
+  aKSBreve1mdrListe: [
+    { brevtype: "Velkomstbrev sendt" },
+    { brevtype: "Dagpengeinformation sendt" },
   ],
-  aKSBreve5: [{ aKSBreve5: "Orientering om rådighedssamtale" }],
-  loensPolice: {
-    lOeNSPolice: true,
+  aKSBreve5Liste: [{ brevtype: "Orientering om rådighedssamtale" }],
+  brev: {
+    harLoensPoliceBrev: true,
+    harRykBrev: "1. rykker - kontingent",
+    rykBrevDato: "2025-11-20",
+    harJobfristBrev: false,
+    harJobfristOk: true,
   },
-  postModt: [
-    { aKSPostModtTitel: "Ledighedserklæring modtaget" },
-    { aKSPostModtTitel: "Dokumentation for anciennitet modtaget" },
+  aKSPostModtListe: [
+    { titel: "Ledighedserklæring modtaget" },
+    { titel: "Dokumentation for anciennitet modtaget" },
   ],
-  rykbrev: {
-    rykbrevType: "1. rykker - kontingent",
-    rykbrevDato: "2025-11-20",
-  },
-  ubehPost: [
-    { ubehPostType: "Manglende", ubehPostTitel: "Timeseddel for oktober 2025" },
-  ],
-  medlemsaarsag: {
+  ubehPostListe: [{ type: "Manglende", titel: "Timeseddel for oktober 2025" }],
+  medlemsstatus: {
     medlemsaarsag: "Nyuddannet",
-    medlemsaarsag1: true,
+    erMedlemsaarsag1: true,
+    medlemssagsstatus: "Aktiv",
     medlemsaarsagTILF: "Dimittend",
     medlemskabGyldigFra: "2024-06-15",
-  },
-  medlemssagsstatus: {
-    medlemssagsstatus: "Aktiv",
-  },
-  medlemskategori: {
     medlemskategori: "Fuldtidsforsikret",
-    medlemskategori1: true,
-    medlemskategori2: false,
-    medlemskategori3: false,
-    medlemskategori4: false,
-  },
-  akasseAnc: {
-    akasseAnc: "2024-06-15",
-  },
-  kontingent: {
+    erMedlemskategori1: true,
+    erMedlemskategori2: false,
+    erMedlemskategori3: false,
+    erMedlemskategori4: false,
+    akasseAnciennitet: "2024-06-15",
     konfritSlut: null,
-    kontingentSaldoAKS: -850.0,
-    forfaldsdatoAKS: "2025-12-01",
-  },
-  gaeld: {
     gaeldssaldoAKS: 0,
-  },
-  aKS: {
     dataMKSag: "2025-234567",
+    erSagsstatusMD: true,
+    erSagsstatusMD1: false,
   },
-  sagsstatus: {
-    sagsstatusMD: true,
-    sagsstatusMD1: false,
+  medlem: {
+    harBeskaeftigelse: false,
+    alder25Plus: true,
   },
-  beskaeftigelse: {
-    beskaeftigelse: false,
-  },
-  moedeudeblivelse: {
+  udtraek: {
     moedeUDEBLE: null,
     datoTidUDEBLE: null,
+    harLovmoede: false,
   },
-  bookingFrist: {
-    bookfristDato: "2025-12-15",
-    bookfristMoedetype: "Rådighedssamtale",
+  bookingfrist: {
+    dato: "2025-12-15",
+    moedetype: "Rådighedssamtale",
+    erAktiv: true,
   },
-  fravaer: [
+  kontaktforloebListe: [
     {
-      kontaktforloebStart: "2025-10-01",
-      kontaktforloebSlut: null,
+      startdato: "2025-10-01",
+      slutdato: null,
     },
   ],
-  stop: [
+  stopListe: [
     {
-      sTOPtype: "Karantæne",
-      sTOPfradato: "2025-10-01",
-      sTOPtildato: "2025-10-03",
-      sTOPAntal: 3,
+      type: "Karantæne",
+      gyldigFra: "2025-10-01",
+      gyldigTil: "2025-10-03",
     },
   ],
-  jobCenter: [
+  jCListe: [
     {
-      jCafogtilmeld4: "2025-10-02",
-      jCStatus4: "Tilmeldt",
-      jCBetegnelse4: "2025-10-02",
-      jCTilm: "2025-10-02",
-      tilmJCJA: true,
+      startdato: "2025-10-02",
+      status: "Tilmeldt",
+      betegnelse: "Jobcenter København",
     },
   ],
+  jC: {
+    tilmDato: "2025-10-02",
+    erTilmeldt: true,
+  },
   jobLog: {
-    mglJoblogUge: "2025-W48",
-    joblogUgerFrit: "2",
-    joblogCV: 1,
-    joblogAnsoegning: 12,
+    ugerMgl: "2025-W48",
+    ugerTekst: "2",
+    antalCV: "1",
+    antalAnsoegninger: "12",
   },
-  fritagetRaadighed: [],
-  aktivering: [
+  fritagetRaadighedListe: [],
+  aktiveringListe: [
     {
-      aktiveringnavn: "Jobsøgningskursus - effektiv ansøgning",
-      aktiveringStart: "2025-11-18",
-      aktiveringSlut: "2025-11-22",
+      navn: "Jobsøgningskursus - effektiv ansøgning",
+      startdato: "2025-11-18",
+      slutdato: "2025-11-22",
     },
   ],
-  yL: [
+  loenarbejdeAttestListe: [
     {
-      yLVirk: "Jensen & Co ApS",
-      yLStartdato: "2023-08-15",
-      yLTYPE: "Beskæftigelse",
-      yLTimer: 1480,
-      yLSagsstatus: "Afsluttet",
-      yLArbophoerSagstatus: "Godkendt",
+      arbejdsgiver: "Jensen & Co ApS",
+      startdato: "2023-08-15",
+      typer: "Beskæftigelse",
+      timerPerUge: 37,
+      sagsstatus: "Afsluttet",
+      arbejdsophoersagsstatus: "Godkendt",
     },
   ],
-  dPERK: {
-    dPERKType: "Dagpenge",
-    dPERKFakstartdato: "2025-10-04",
-    dPERKSagsstatus: "Aktiv",
-    dPERKSagsstatusDato: "2025-10-04",
+  loenarbejdeAttest: {
+    harTimerPerUge: true,
   },
-  cVUdd: [
+  dagpengeerklaering: {
+    udbtype: "Dagpenge",
+    startdato: "2025-10-04",
+    sagsstatus: "Aktiv",
+    sagsstatusdato: "2025-10-04",
+    erGodk: true,
+  },
+  cVUddannelseListe: [
     {
-      cVUddannelse: "Professionsbachelor i IT",
-      cVUddNiveau: "Mellemlang videregående",
-      cVUddStart: "2020-09-01",
-      cVUddSlut: "2024-06-30",
+      uddannelse: "Professionsbachelor i IT",
+      niveau: "Mellemlang videregående",
+      startdato: "2020-09-01",
+      slutdato: "2024-06-30",
     },
   ],
-  dPForbrug: [
-    { dPForbrug: 148, dPUdbMaaned: "2025-10" },
-    { dPForbrug: 160, dPUdbMaaned: "2025-11" },
-  ],
-  paamind: [
-    {
-      paaminType5: "Jobsøgning",
-      paaminBetegn5: "Husk at opdatere joblog ugentligt",
-    },
-  ],
-  uRRing: {
+  timeForbrug: {
+    dagpenge: 308,
+    senesteAarMaaned: "2025-11",
+    erOver962: false,
+    erOver1443: false,
+  },
+  paamindelser: {
+    type: "Jobsøgning",
+    betegnelse: "Husk at opdatere joblog ugentligt",
+  },
+  paamindelse: {
     uRRINGLType: "Opkald",
     uRRINGLTekst: "Kontaktet vedr. manglende timeseddel",
+    harFUBASEF: false,
   },
   efterloen: {
-    efterloensbevis: false,
-    efterloenretdato: null,
+    godk: false,
+    efterloenRetDato: null,
   },
-  uDB: {
-    uDBPeriode: 202511,
-    uDBType: "Dagpenge",
-    uDBBeregnDato: "2025-11-25",
-    uDBBeloeb: 18863,
-    uDBDispDato: "2025-11-30",
-    uDBStatus: "Til udbetaling",
+  udbetaling: {
+    periode: 202511,
+    type: "Dagpenge",
+    beregnDato: "2025-11-25",
+    beloeb: 18863,
+    dispDato: "2025-11-30",
+    status: "Til udbetaling",
   },
-  loensikring: {
-    lOeNSAendringsdato: "2024-06-15",
-    lOeNSPakkevalg: "Basis",
-    lOeNSTegningsdato: "2024-06-15",
-    lOeNSSUM: 75000,
-    lOeNSDaekPeriode: 6,
+  akasseKontingent: {
+    saldo: -850.0,
+    forfaldsdato: "2025-12-01",
+  },
+  loensStam: {
+    aendringsdato: "2024-06-15",
+    pakkevalg: "Basis",
+    tegningsdato: "2024-06-15",
+    sum: 75000,
+    daekPeriode: 6,
   },
   loensErkl: {
-    lOeNSUdbGodk: null,
-    lOeNSFakStart: null,
-    lOeNSFakSlut: null,
-    lOeNSRestTimer: null,
-    lOeNSBemaerk: null,
+    udbGodk: null,
+    fakStart: null,
+    fakSlut: null,
+    restTimer: null,
+    bemaerk: null,
   },
-  kursus: {
-    kursusStart: "2025-11-18",
-    kursusSlut: "2025-11-22",
-    kursusTimer: 30,
-    kursusErhvevsgr: "IT og digitale kompetencer",
-    kursusForbrugtetimer: 30,
-  },
-  efterregulering: [
+  kursusListe: [
     {
-      efteregPeriode: "2025-10",
-      efterregStatus: "Behandlet",
-      efterregAntal: 2,
+      startdato: "2025-11-18",
+      slutdato: "2025-11-22",
+      timer: 30,
+      erhvervsgruppe: "IT og digitale kompetencer",
+      forbrugteTimer: 30,
     },
   ],
+  efterreguleringListe: [
+    {
+      periode: "2025-10",
+      status: "Behandlet",
+    },
+  ],
+  nelErkl: {
+    godk: false,
+  },
 };
 
 export default mockAseCustomer;

@@ -1,0 +1,705 @@
+openapi: 3.0.0
+info:
+  title: AKS data API til telefonsystem
+  version: 2.0.0
+  description: API Specifikation til AKS data API til telefonsystem, genereret af
+    Microsoft CoPilot
+paths:
+  /GetAllObjects:
+    get:
+      summary: Hent alle objekter
+      parameters:
+      - name: Medlemsnr
+        in: query
+        required: true
+        schema:
+          type: string
+        example: 99887766
+      responses:
+        '200':
+          description: Alle objekter returneres
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllObjects'
+components:
+  schemas:
+    Fuldmagt:
+      type: object
+      properties:
+        Er_Aktiv:
+          type: boolean
+          example: true
+        Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+    OBSNote:
+      type: object
+      properties:
+        Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+    Sagsrev:
+      type: object
+      properties:
+        Har_Note:
+          type: boolean
+          example: true
+        Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Startdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+    GDag:
+      type: object
+      properties:
+        Har_Note:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Startdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+    AKSBreve1mdr_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Brevtype:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    AKSBreve5_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Brevtype:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    Brev:
+      type: object
+      properties:
+        Har_LoensPoliceBrev:
+          type: boolean
+          example: true
+        Har_RykBrev:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        RykBrevDato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Har_JobfristBrev:
+          type: boolean
+          example: true
+        Har_JobfristOk:
+          type: boolean
+          example: true
+    AKSPostModt_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Titel:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    UbehPost_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Type:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Titel:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    Medlemsstatus:
+      type: object
+      properties:
+        Medlemsaarsag:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Er_Medlemsaarsag1:
+          type: boolean
+          example: true
+        Medlemssagsstatus:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        MedlemsaarsagTILF:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        MedlemskabGyldigFra:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Medlemskategori:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Er_Medlemskategori1:
+          type: boolean
+          example: true
+        Er_Medlemskategori2:
+          type: boolean
+          example: true
+        Er_Medlemskategori3:
+          type: boolean
+          example: true
+        Er_Medlemskategori4:
+          type: boolean
+          example: true
+        AkasseAnciennitet:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        KonfritSlut:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        GaeldssaldoAKS:
+          type: number
+          example: 123.45
+          nullable: true
+        DataMKSag:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Er_sagsstatusMD:
+          type: boolean
+          example: true
+        Er_sagsstatusMD1:
+          type: boolean
+          example: true
+    Medlem:
+      type: object
+      properties:
+        Har_Beskaeftigelse:
+          type: boolean
+          example: true
+        Alder25Plus:
+          type: boolean
+          example: true
+    Udtraek:
+      type: object
+      properties:
+        MoedeUDEBLE:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        DatoTidUDEBLE:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Har_Lovmoede:
+          type: boolean
+          example: true
+    Bookingfrist:
+      type: object
+      properties:
+        Dato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Moedetype:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Er_Aktiv:
+          type: boolean
+          example: true
+    Kontaktforloeb_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Slutdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+    Stop_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Type:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          GyldigFra:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          GyldigTil:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+    JC_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Status:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Betegnelse:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+    JC:
+      type: object
+      properties:
+        Tilm_Dato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Er_Tilmeldt:
+          type: boolean
+          example: true
+    JobLog:
+      type: object
+      properties:
+        Uger_Mgl:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Uger_Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        AntalCV:
+          type: string
+          example: Eksempel
+          nullable: true
+        AntalAnsoegninger:
+          type: string
+          example: Eksempel
+          nullable: true
+    FritagetRaadighed_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Slutdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Bemaerk:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    Aktivering_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Navn:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Slutdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+    LoenarbejdeAttest_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Arbejdsgiver:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Typer:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          TimerPerUge:
+            type: number
+            example: 123.45
+            nullable: true
+          Sagsstatus:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Arbejdsophoersagsstatus:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    LoenarbejdeAttest:
+      type: object
+      properties:
+        Har_TimerPerUge:
+          type: boolean
+          example: true
+    Dagpengeerklaering:
+      type: object
+      properties:
+        Udbtype:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Startdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Sagsstatus:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Sagsstatusdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Er_Godk:
+          type: boolean
+          example: true
+    CV_Uddannelse_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Uddannelse:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Niveau:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Slutdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+    TimeForbrug:
+      type: object
+      properties:
+        Dagpenge:
+          type: number
+          example: 123.45
+          nullable: true
+        SenesteAarMaaned:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Er_Over962:
+          type: boolean
+          example: true
+        Er_Over1443:
+          type: boolean
+          example: true
+    Paamindelser:
+      type: object
+      properties:
+        Type:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Betegnelse:
+          type: string
+          example: EksempelTekst
+          nullable: true
+    Paamindelse:
+      type: object
+      properties:
+        URRINGL_Type:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        URRINGL_Tekst:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        harFUBASEF:
+          type: boolean
+          example: true
+    Efterloen:
+      type: object
+      properties:
+        Godk:
+          type: boolean
+          example: true
+          nullable: true
+        EfterloenRetDato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+    Udbetaling:
+      type: object
+      properties:
+        Periode:
+          type: number
+          example: 123.45
+          nullable: true
+        Type:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        BeregnDato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Beloeb:
+          type: number
+          example: 123.45
+          nullable: true
+        DispDato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Status:
+          type: string
+          example: EksempelTekst
+          nullable: true
+    AkasseKontingent:
+      type: object
+      properties:
+        Saldo:
+          type: number
+          example: 123.45
+          nullable: true
+        Forfaldsdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+    LoensStam:
+      type: object
+      properties:
+        Aendringsdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Pakkevalg:
+          type: string
+          example: EksempelTekst
+          nullable: true
+        Tegningsdato:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        Sum:
+          type: number
+          example: 123.45
+          nullable: true
+        DaekPeriode:
+          type: number
+          example: 123.45
+          nullable: true
+    LoensErkl:
+      type: object
+      properties:
+        UdbGodk:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        FakStart:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        FakSlut:
+          type: string
+          example: '2025-11-25'
+          format: date
+          nullable: true
+        RestTimer:
+          type: number
+          example: 123.45
+          nullable: true
+        Bemaerk:
+          type: string
+          example: EksempelTekst
+          nullable: true
+    Kursus_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Startdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Slutdato:
+            type: string
+            example: '2025-11-25'
+            format: date
+            nullable: true
+          Timer:
+            type: number
+            example: 123.45
+            nullable: true
+          Erhvervsgruppe:
+            type: string
+            example: EksempelTekst
+            nullable: true
+          ForbrugteTimer:
+            type: number
+            example: 123.45
+            nullable: true
+    Efterregulering_liste:
+      type: array
+      items:
+        type: object
+        properties:
+          Periode:
+            type: string
+            example: 2025-11
+          Status:
+            type: string
+            example: EksempelTekst
+            nullable: true
+    NelErkl:
+      type: object
+      properties:
+        Godk:
+          type: boolean
+          example: true
+    AllObjects:
+      type: object
+      properties:
+        Fuldmagt:
+          $ref: '#/components/schemas/Fuldmagt'
+        OBSNote:
+          $ref: '#/components/schemas/OBSNote'
+        Sagsrev:
+          $ref: '#/components/schemas/Sagsrev'
+        GDag:
+          $ref: '#/components/schemas/GDag'
+        AKSBreve1mdr_liste:
+          $ref: '#/components/schemas/AKSBreve1mdr_liste'
+        AKSBreve5_liste:
+          $ref: '#/components/schemas/AKSBreve5_liste'
+        Brev:
+          $ref: '#/components/schemas/Brev'
+        AKSPostModt_liste:
+          $ref: '#/components/schemas/AKSPostModt_liste'
+        UbehPost_liste:
+          $ref: '#/components/schemas/UbehPost_liste'
+        Medlemsstatus:
+          $ref: '#/components/schemas/Medlemsstatus'
+        Medlem:
+          $ref: '#/components/schemas/Medlem'
+        Udtraek:
+          $ref: '#/components/schemas/Udtraek'
+        Bookingfrist:
+          $ref: '#/components/schemas/Bookingfrist'
+        Kontaktforloeb_liste:
+          $ref: '#/components/schemas/Kontaktforloeb_liste'
+        Stop_liste:
+          $ref: '#/components/schemas/Stop_liste'
+        JC_liste:
+          $ref: '#/components/schemas/JC_liste'
+        JC:
+          $ref: '#/components/schemas/JC'
+        JobLog:
+          $ref: '#/components/schemas/JobLog'
+        FritagetRaadighed_liste:
+          $ref: '#/components/schemas/FritagetRaadighed_liste'
+        Aktivering_liste:
+          $ref: '#/components/schemas/Aktivering_liste'
+        LoenarbejdeAttest_liste:
+          $ref: '#/components/schemas/LoenarbejdeAttest_liste'
+        LoenarbejdeAttest:
+          $ref: '#/components/schemas/LoenarbejdeAttest'
+        Dagpengeerklaering:
+          $ref: '#/components/schemas/Dagpengeerklaering'
+        CV_Uddannelse_liste:
+          $ref: '#/components/schemas/CV_Uddannelse_liste'
+        TimeForbrug:
+          $ref: '#/components/schemas/TimeForbrug'
+        Paamindelser:
+          $ref: '#/components/schemas/Paamindelser'
+        Paamindelse:
+          $ref: '#/components/schemas/Paamindelse'
+        Efterloen:
+          $ref: '#/components/schemas/Efterloen'
+        Udbetaling:
+          $ref: '#/components/schemas/Udbetaling'
+        AkasseKontingent:
+          $ref: '#/components/schemas/AkasseKontingent'
+        LoensStam:
+          $ref: '#/components/schemas/LoensStam'
+        LoensErkl:
+          $ref: '#/components/schemas/LoensErkl'
+        Kursus_liste:
+          $ref: '#/components/schemas/Kursus_liste'
+        Efterregulering_liste:
+          $ref: '#/components/schemas/Efterregulering_liste'
+        NelErkl:
+          $ref: '#/components/schemas/NelErkl'
